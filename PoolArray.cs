@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 public class PoolArray<T> : System.IDisposable
 {
@@ -11,7 +11,7 @@ public class PoolArray<T> : System.IDisposable
 
 
     private static bool memoryAutoControl = true;
-    private static int maxSize = 4;
+    private static int maxSize = 100;
     private static int optimalSize = maxSize / 2;
     private static Dictionary<int, List<T[]>> pool = new Dictionary<int, List<T[]>>();
     private static Dictionary<int, List<bool>> free = new Dictionary<int, List<bool>>();
@@ -72,7 +72,7 @@ public class PoolArray<T> : System.IDisposable
         }
     }
 
-    public static void ChackSize()
+    public static void CheckSize()
     {
         int size = GetPoolSize();
         if (maxSize >= size)
@@ -209,6 +209,6 @@ public class PoolArray<T> : System.IDisposable
         current.index = -1;
 
         if (memoryAutoControl)
-            ChackSize();
+            CheckSize();
     }
 }
