@@ -4,10 +4,10 @@ Array Pool implementation
 
 Usage:
 
-    PoolArray<int> intArrayPoolFactory = new PoolArray<int>();  // Create instance
+    PoolArray<int> intArray = new PoolArray<int>();  // Create instance
 
-    intArrayPoolFactory.Init(100);  // Init array length (can set in the constructor)
+    intArray.Init(100);  // Set array with length (can set in the constructor)
     
-    intArrayPoolFactory[index]  // Call like array
+    intArray[index]  // Call like array
     
-    intArrayPoolFactory.Dispose() //  Dispose 
+    intArray.Dispose() //  Dispose 
